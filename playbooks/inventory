@@ -1,0 +1,4 @@
+[addweb1]
+addweb ansible_host=192.168.0.166 ansible_connection=ssh ansible_port=22 ansible_user=addweb ansible_become_pass=addweb123 ansible_ssh_pass=addweb123
+
+

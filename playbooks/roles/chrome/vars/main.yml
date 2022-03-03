@@ -1,0 +1,3 @@
+---
+# vars file for chrome
+apt_file: /etc/apt/sources.list.d/google-chrome.list

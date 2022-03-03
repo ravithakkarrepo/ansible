@@ -1,0 +1,25 @@
+---
+# tasks file for common
+- name: "Git,Unzip,Curl,software-properties-commson,vim"
+  apt:
+    name:
+      - git-all
+      - unzip
+      - curl
+      - software-properties-common
+      - vim
+      - virtualbox
+    state: present
+# - name: "Git Install"
+#   apt_repository:
+    # filename: git-core-ubuntu-ppa-{{ ansible_distribution_release }}
+#     repo: deb http://ppa.launchpad.net/git-core/ppa/ubuntu {{ ansible_distribution_release }} main
+#     state: present
+#     update_cache: yes
+# - name:
+#   apt:
+#     name: git
+#     state: present
+
+    # install_recommends: yes
+

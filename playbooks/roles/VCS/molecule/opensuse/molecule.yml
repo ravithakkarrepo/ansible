@@ -1,0 +1,28 @@
+---
+dependency:
+  name: galaxy
+
+driver:
+  name: docker
+
+lint: |
+  set -e
+  yamllint .
+  ansible-lint
+  flake8
+
+platforms:
+  - name: ansible-role-visual-studio-code-opensuse
+    image: opensuse/leap:15.1
+
+provisioner:
+  name: ansible
+  playbooks:
+    converge: ../code-only/converge.yml
+  inventory:
+    host_vars:
+      instance:
+        ansible_user: ansible
+
+verifier:
+  name: testinfra

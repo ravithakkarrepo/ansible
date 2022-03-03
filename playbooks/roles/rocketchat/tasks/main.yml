@@ -1,0 +1,23 @@
+---
+# tasks file for roles/rocketchat
+
+# - name: check repo version
+#   uri:
+#     url: https://api.github.com/repos/RocketChat/Rocket.Chat.Electron/releases/latest
+#     method: GET
+#     body_format: json  
+#     return_content: true
+#   register: latest
+
+# - debug:
+    # msg: "{{ latest.tag_name }}"
+    # var: latest.json.tag_name
+
+# - name: Install a Rocket chat .deb package from the internet.
+#   apt:
+#     deb: "https://github.com/RocketChat/Rocket.Chat.Electron/releases/download/{{ latest.json.tag_name }}/rocketchat_{{ latest.json.tag_name }}_amd64.deb"
+#     state: present
+- name: Install a Rocket chat .deb package from the internet.
+  apt:
+    deb: https://github.com/RocketChat/Rocket.Chat.Electron/releases/download/3.5.6/rocketchat_3.5.6_amd64.deb
+    state: present

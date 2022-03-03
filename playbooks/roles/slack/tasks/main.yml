@@ -1,0 +1,7 @@
+---
+# tasks file for roles/slack
+
+- name: Install Slack
+  apt:
+    deb: https://downloads.slack-edge.com/linux_releases/slack-desktop-4.17.0-amd64.deb
+    state: present

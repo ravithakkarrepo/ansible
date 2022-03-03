@@ -1,0 +1,22 @@
+---
+# tasks file for roles/dockerenv
+- name: Copy docker env file Drupal-vagrant
+  unarchive:
+    # setup with DB-5
+    src: /home/addweb/Documents/Drupal8-vagrant.zip
+    # setup with double DB-5 and DB-8
+    #src: /home/addweb/Original/DB8/Drupal8-vagrant.zip
+    dest: /home/addweb
+    owner: addweb
+
+- name: Docker Environment set
+  blockinfile:
+    path: /home/addweb/.bashrc
+    block: |
+      alias dup="docker-compose up -d"
+      alias dstop="docker-compose stop"
+      alias ddown="docker-compose down"
+
+      alias dcbash="docker exec -it drupal8-vagrant_drupal_1 bash"
+      alias dbbash="docker exec -it drupal8-vagrant_db_1 bash"
+      alias dcra="docker exec -it drupal8-vagrant_drupal_1  /etc/init.d/apache2 reload"

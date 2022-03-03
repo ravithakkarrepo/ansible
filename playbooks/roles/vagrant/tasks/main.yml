@@ -1,0 +1,15 @@
+---
+# tasks file for vagrant
+- name: vagrant Key
+  apt_key:
+    url: https://apt.releases.hashicorp.com/gpg 
+    state: present
+- name: Add vagrant Repo
+  apt_repository:
+    repo: deb [arch=amd64] https://apt.releases.hashicorp.com {{ ansible_distribution_release }} main
+- name: vagrant installation
+  apt:
+    name: vagrant
+- name: lando installation
+  apt:
+    deb: https://files.devwithlando.io/lando-stable.deb

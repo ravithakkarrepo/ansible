@@ -1,0 +1,18 @@
+---
+# tasks file for roles/anydesk
+- name: AnyDesk Key Add
+  apt_key:
+    url: https://keys.anydesk.com/repos/DEB-GPG-KEY
+    state: present
+
+- name: Install AnyDesk Repo
+  apt_repository:
+    repo: deb http://deb.anydesk.com/ all main
+    filename: anydesk-stable.list
+    state: present
+
+- name: Install AnyDesk Chrome
+  apt: 
+    name: anydesk
+    state: present
+    force: yes
